@@ -4,7 +4,7 @@
   "license": "MIT",
   "repository" : {
     "type" : "git",
-    "url" : "git://github.com/gomoob/php-metadata-extractor.git"  
+    "url" : "git://github.com/cdobson/php-metadata-extractor.git"  
   },
   "devDependencies": {
     "grunt": "~0.4",
