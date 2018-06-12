@@ -20,7 +20,7 @@ class MetadataExtractorDriver extends JavaDriver
      *
      * @var string
      */
-    private static $INITIAL_JARS_DIRECTORY = __DIR__ . '/../../../resources/jars';
+    private static $INITIAL_JARS_DIRECTORY = '/home/portal/baps/vendor/cdobson/php-metadata-extractor/src/main/php/Gomoob/BinaryDriver/../../../resources/jars';
 
     /**
      * The name of the main Java class used to call the `metadata-extractor` library.
@@ -29,11 +29,21 @@ class MetadataExtractorDriver extends JavaDriver
      */
     const MAIN_JAVA_CLASS_NAME = 'com.drew.imaging.ImageMetadataReader';
 
+    public function __construct() {
+       self::$INITIAL_JARS_DIRECTORY =  __DIR__ . '/../../../resources/jars';
+    }
+
     /**
      * {@inheritdoc}
      */
     public function command($command, $bypassErrors = false, $listeners = null)
     {
+        parent::__construct(
+            new \Alchemy\BinaryDriver\ProcessBuilderFactory('/usr/bin/java'),
+            new \Monolog\Logger('Alchemy\BinaryDriver logger'),
+            new \Alchemy\BinaryDriver\Configuration(['timeout' => 300])
+        );
+ 
         return parent::command(
             array_merge(
                 [
