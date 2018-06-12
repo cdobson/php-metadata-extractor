@@ -1,5 +1,5 @@
 {
-	"name" : "gomoob/php-metadata-extractor",
+	"name" : "cdobson/php-metadata-extractor",
 	"description" : "PHP wrapper to easily call the Java metadata-extrator library.",
 	"version" : "2.9.1-alpha.4",
 	"license" : "MIT",
